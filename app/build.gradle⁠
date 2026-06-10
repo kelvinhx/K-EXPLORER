@@ -1,0 +1,29 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.tv.filemaster'
+    compileSdk 33 // Compatibilidade com Android 11
+
+    defaultConfig {
+        applicationId "com.tv.filemaster"
+        minSdk 24 // Suporte para TVs mais antigas, se necessário
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    // Biblioteca para criar o Servidor Web Interno na TV
+    implementation 'org.nanohttpd:nanohttpd:2.3.2'
+    
+    // Biblioteca para gerar o QR Code na tela da TV
+    implementation 'com.google.zxing:core:3.5.1'
+}
