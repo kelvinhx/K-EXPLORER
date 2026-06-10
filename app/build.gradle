@@ -1,0 +1,26 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.tv.filemaster'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.tv.filemaster"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'org.nanohttpd:nanohttpd:2.3.2'
+    implementation 'com.google.zxing:core:3.5.1'
+}
