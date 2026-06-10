@@ -12,20 +12,26 @@ jobs:
     - name: Baixar o código
       uses: actions/checkout@v4
 
+    - name: Listar arquivos (Modo Investigação)
+      run: ls -R
+
     - name: Configurar Java 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Configurar Gradle
-      uses: gradle/gradle-build-action@v2
+    - name: Configurar Gradle (Versão Estável)
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: '8.3'
 
     - name: Compilar o App
       run: gradle assembleDebug --no-daemon
 
     - name: Salvar o APK gerado
       uses: actions/upload-artifact@v4
+      if: success()
       with:
         name: FileMaster-TV-debug
         path: app/build/outputs/apk/debug/app-debug.apk
